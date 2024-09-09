@@ -36,6 +36,10 @@ class _MyHomePageState extends State<MyHomePage> {
       _text =  'Шевелёв Игорь Анатольевич\nИКБО-25-21\n21И0627';
     });
   }
+  // TODO
+  void _changeNextScreen() {
+    print("hello world!");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.accessible_forward_sharp),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
