@@ -28,10 +28,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _text = '';
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+      _text =  'Шевелёв Игорь Анатольевич\nИКБО-25-21\n21И0627';
     });
   }
 
@@ -52,6 +54,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            Text(
+              '$_text',
+              style: Theme.of(context).textTheme.labelMedium,
             ),
           ],
         ),
