@@ -28,24 +28,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  String _text = '';
-  int _listViewCount = 3;
   int _currentPageIndex = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-      _text =  'Шевелёв Игорь Анатольевич\nИКБО-25-21\n21И0627';
-    });
-  }
-  // TODO
-  void _changeNextScreen() {
-    print("hello world!");
-  }
-  void _changePageScreen(int numberPage) {
-    _currentPageIndex = numberPage;
-  }
+  String _imageURL = 'https://static.vecteezy.com/system/resources/previews/013/262/916/non_2x/penguin-avatar-illustration-vector.jpg';
 
   @override
   Widget build(BuildContext context) {
@@ -54,16 +38,16 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const <Widget>[
+      body: <Widget>[
         // Home page
-        Card(
+        const Card(
           child: Center(
             child: Text("Home page"),
           ),
         ),
 
         // Chat page
-        Padding(
+        const Padding(
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
@@ -83,8 +67,18 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ],
           )
-        )
+        ),
 
+        // Profile page
+        Center(
+          child: Card(
+            child: SizedBox(
+              width: 128,
+              height: 128,
+              child: Image.network(_imageURL),
+            ),
+          ),
+        ),
       ][_currentPageIndex],
 
 
@@ -95,6 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _currentPageIndex = index;
           });
         },
+        selectedIndex: _currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
             icon: Icon(Icons.home),
