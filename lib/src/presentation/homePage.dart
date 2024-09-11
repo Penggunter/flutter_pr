@@ -30,6 +30,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _text = '';
+  int _listViewCount = 3;
+  int _currentPageIndex = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -41,6 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void _changeNextScreen() {
     print("hello world!");
   }
+  void _changePageScreen(int numberPage) {
+    _currentPageIndex = numberPage;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,46 +54,49 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Вы нажали на кнопку:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text(
-              '$_text',
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-          ],
+      body: const <Widget>[
+        // Home page
+        Card(
+          child: Center(
+            child: Text("Home page"),
+          ),
         ),
-      ),
+      ][_currentPageIndex],
+
+
+      // FloatingActionButton
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.accessible_forward_sharp),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+
+
+      // NavigationBar
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            _currentPageIndex = index;
+          });
+        },
+        destinations: const <Widget>[
+          NavigationDestination(
             icon: Icon(Icons.home),
-            label: 'Home'
+            label: 'Home',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.chat),
             label: 'Chat',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Icon(Icons.people),
             label: 'Profile',
           )
         ]
       ),
     );
+
+    
   }
 }
 
