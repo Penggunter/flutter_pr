@@ -61,15 +61,31 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text("Home page"),
           ),
         ),
+
+        // Chat page
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Card(
+                  color: Color.fromARGB(255, 230, 163, 48),
+                  child: Text("Hello student from mirea!"),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Card(
+                  color: Color.fromARGB(255, 230, 163, 48),
+                  child: Text("Nice to meet you!"),
+                ),
+              )
+            ],
+          )
+        )
+
       ][_currentPageIndex],
-
-
-      // FloatingActionButton
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.accessible_forward_sharp),
-      ),
 
 
       // NavigationBar
