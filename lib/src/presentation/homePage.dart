@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -71,6 +72,23 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.accessible_forward_sharp),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Profile',
+          )
+        ]
+      ),
     );
   }
 }
+
