@@ -39,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: <Widget>[
+
         // Home page
         const Card(
           child: Center(
@@ -81,7 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ][_currentPageIndex],
 
-
       // NavigationBar
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
@@ -106,8 +106,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ]
       ),
     );
-
-    
   }
 }
 
