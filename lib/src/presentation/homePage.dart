@@ -41,9 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: <Widget>[
 
         // Home page
-        const Card(
-          child: Center(
-            child: Text("Home page"),
+        Container(
+          child: const Center(
+            child:  Text("Home page"),
           ),
         ),
 
