@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -42,8 +43,63 @@ class _MyHomePageState extends State<MyHomePage> {
 
         // Home page
         Container(
-          child: const Center(
-            child:  Text("Home page"),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Мы в социальных сетях",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const FaIcon(FontAwesomeIcons.vk),
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'VK',
+                              textAlign: TextAlign.center,
+                            ),
+                            duration: Duration(seconds: 1),
+                          ),
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const FaIcon(FontAwesomeIcons.google),
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Google',
+                              textAlign: TextAlign.center,
+                            ),
+                            duration: Duration(seconds: 1),
+                          ),
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const FaIcon(FontAwesomeIcons.message),
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Mail.ru',
+                              textAlign: TextAlign.center,
+                            ),
+                            duration: Duration(seconds: 1),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
 
